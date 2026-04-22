@@ -12,13 +12,13 @@ Reusable itch.io Butler upload helper that mirrors the Steamline workflow.
 
 In your game repo, commit a config such as:
 
-- `itchline.config.env.example`
+- `itchline.config.env`
 
 Then create your local private config (ignored by git):
 
 - `itchline.config.local.env`
 
-You can copy a starter config from `examples/`.
+You can copy a starter config from `itchline/examples/itchline.config.env.example`.
 
 ## Usage
 
@@ -34,6 +34,7 @@ Override config path if needed:
 
 ```bash
 ./itchline/itchline.sh --config ./itchline.config.local.env --check
+./itchline/itchline.sh --config ./itchline.config.env --check
 ```
 
 ## Config variables

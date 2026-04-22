@@ -26,10 +26,10 @@ resolve_path() {
 
 find_default_config() {
   local candidates=(
-    "$PWD/itchline.config.local.env"
     "$PWD/itchline.config.env"
-    "$repo_root/itchline.config.local.env"
+    "$PWD/itchline.config.local.env"
     "$repo_root/itchline.config.env"
+    "$repo_root/itchline.config.local.env"
     "$program_dir/itchline.config.local.env"
     "$program_dir/itchline.config.env"
   )
@@ -42,7 +42,7 @@ find_default_config() {
     fi
   done
 
-  printf '%s\n' "$repo_root/itchline.config.local.env"
+  printf '%s\n' "$repo_root/itchline.config.env"
 }
 
 find_butler_bin() {
@@ -97,7 +97,7 @@ usage() {
 Usage: $(basename "$0") [options]
 
 Options:
-  --config FILE           Path to itch config file (default: itchline.config.local.env)
+  --config FILE           Path to itch config file (default: itchline.config.env)
   --butler-bin PATH       Path to butler executable
   --target USER/GAME      itch target slug (example: fufroom/fashion-fupa)
   --linux-path DIR        Linux build folder
@@ -110,7 +110,7 @@ Options:
   --check                 Validate config/files without uploading
   -h, --help              Show this help
 
-Config variables (in itchline.config.local.env):
+Config variables (in itchline.config.env):
   BUTLER_BIN
   ITCH_TARGET
   ITCH_BUILD_PATH_LINUX
@@ -136,8 +136,8 @@ fi
 
 if [[ ! -f "$config_file" ]]; then
   echo "Config file not found: $config_file" >&2
-  echo "Create one at itchline.config.local.env." >&2
-  echo "A safe starter is tracked at itchline.config.env.example." >&2
+  echo "Create one at itchline.config.env." >&2
+  echo "A starter template is in itchline/examples/itchline.config.env.example." >&2
   exit 1
 fi
 
